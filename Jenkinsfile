@@ -8,5 +8,10 @@ pipeline {
                 sh 'hostname'
             }
         }
+        stage ('Unit test') {
+            steps {
+                sh 'echo Unit testing'
+            }
+        }
     }
 }
