@@ -3,9 +3,16 @@ pipeline {
         label "linux"
     }
     stages {
-        stage ('Init') {
+        stage('Clone github repo'){
             steps {
-                sh 'hostname'
+                git url: 'https://github.com/sinkle/test_jenkins.git', branch: 'master'
+            }
+        }
+
+        stage('Setup') {
+            steps {
+                sh 'pwd'
+                sh 'pip install -r backend/src/requirements.txt'
             }
         }
     }
